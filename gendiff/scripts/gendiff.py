@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 import argparse
+from gendiff import generate_diff
 
-def foo(first_file, second_file):
-    pass
 
 def main():
     parser = argparse.ArgumentParser(
@@ -13,8 +12,8 @@ def main():
     parser.add_argument('second_file')
     parser.add_argument('-f', '--format', help = 'set format of output')
     args = parser.parse_args()
-    print(args)
-    foo(args.first_file, args.second_file)
+    print(generate_diff(args.first_file, args.second_file))
+    
     
 if __name__ == "main":
     main()
