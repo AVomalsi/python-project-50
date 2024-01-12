@@ -1,6 +1,6 @@
 .venv/
 dist/
-json_files/
+.pytest_cache/
 *.pyc
 **/__pycache__
 *.DS_Store
