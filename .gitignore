@@ -4,3 +4,6 @@ dist/
 *.pyc
 **/__pycache__
 *.DS_Store
+.coverage
+eval `ssh-agent -s`
+eval `ssh-agent -s`.pub
