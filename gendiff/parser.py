@@ -2,10 +2,14 @@ from json import loads
 from yaml import safe_load
 
 
-def do_parse(content):
-    if content.endswith('.json'):
-        with open(content, 'r') as f:
-            return loads(f.read())
-    elif content.endswith('.yaml') or content.endswith('.yml'):
-        with open(content, 'r') as f:
-            return safe_load(f.read())
+def read_file(file):
+    with open(file, 'r') as data:
+        return data.read()
+
+
+def do_parse(file):
+    content = read_file(file)
+    if file.endswith('.json'):
+        return loads(content)
+    elif file.endswith('.yaml') or file.endswith('.yml'):
+        return safe_load(content)

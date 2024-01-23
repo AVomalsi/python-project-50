@@ -7,3 +7,7 @@
 
 [![asciicast](https://asciinema.org/a/44HpFbbFPc9Edjj56oehMVrzg.svg)](https://asciinema.org/a/44HpFbbFPc9Edjj56oehMVrzg)
 [![asciicast](https://asciinema.org/a/KMaUXsnN7YnObZfxC1JJYqE62.svg)](https://asciinema.org/a/KMaUXsnN7YnObZfxC1JJYqE62)
+
+### Finding differences for files that have nested structures (YML, YAML)
+
+[![asciicast](https://asciinema.org/a/oOlpJDvZcOHjwPZvChGYg5iWP.svg)](https://asciinema.org/a/oOlpJDvZcOHjwPZvChGYg5iWP)
