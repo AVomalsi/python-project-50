@@ -11,3 +11,7 @@
 ### Finding differences for files that have nested structures (YML, YAML)
 
 [![asciicast](https://asciinema.org/a/oOlpJDvZcOHjwPZvChGYg5iWP.svg)](https://asciinema.org/a/oOlpJDvZcOHjwPZvChGYg5iWP)
+
+### Show differences between files in flat format
+
+[![asciicast](https://asciinema.org/a/hy10g6YRsA1B3ReN27Vyqg4pM.svg)](https://asciinema.org/a/hy10g6YRsA1B3ReN27Vyqg4pM)
