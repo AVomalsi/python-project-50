@@ -15,3 +15,7 @@
 ### Show differences between files in flat format
 
 [![asciicast](https://asciinema.org/a/hy10g6YRsA1B3ReN27Vyqg4pM.svg)](https://asciinema.org/a/hy10g6YRsA1B3ReN27Vyqg4pM)
+
+### Output to JSON
+
+[![asciicast](https://asciinema.org/a/jFXpx11EJiNkDhJEfICPifp50.svg)](https://asciinema.org/a/jFXpx11EJiNkDhJEfICPifp50)
