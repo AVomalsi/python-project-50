@@ -1,6 +1,9 @@
 install:
 	poetry install
 
+build:
+	poetry build
+
 gendiff:
 	poetry run brain-games
 
@@ -26,8 +29,5 @@ selfcheck:
 	poetry check
 
 check: selfcheck test lint
-
-build: check
-	poetry build
 
 .PHONY: install test lint selfcheck check build
