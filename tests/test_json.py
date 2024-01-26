@@ -1,4 +1,3 @@
-import pytest
 from gendiff.parser import do_parse
 from gendiff.generate_tree import get_raw_tree
 from gendiff.formatters.json import get_json_format
