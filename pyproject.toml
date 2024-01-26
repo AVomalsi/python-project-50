@@ -1,11 +1,20 @@
 [tool.poetry]
 name = "hexlet-code"
 version = "0.1.0"
-description = ""
+description = "Difference Calculator"
 authors = ["Артур Исламов <arturislamov91@yandex.ru>"]
 readme = "README.md"
 packages = [
   { include = "gendiff" },
+]
+repository = "https://github.com/AVomalsi/python-project-50"
+classifiers = [
+  "Environment :: Console",
+  "Framework :: Flake8",
+  "Framework :: Pytest",
+  "License :: Freeware",
+  "Natural Language :: English",
+  "Programming Language :: Python :: 3.11"
 ]
 
 [tool.poetry.dependencies]
