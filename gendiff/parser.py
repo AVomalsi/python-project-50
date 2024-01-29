@@ -7,9 +7,11 @@ def read_file(file):
         return data.read()
 
 
-def do_parse(file):
+def parse_file(file):
     content = read_file(file)
     if file.endswith('.json'):
         return loads(content)
     elif file.endswith('.yaml') or file.endswith('.yml'):
         return safe_load(content)
+    else:
+        raise ValueError('File with this extension is not supported')

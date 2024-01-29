@@ -1,4 +1,4 @@
-def get_raw_tree(data1, data2):
+def get_diff_tree(data1, data2):
     diff = []
 
     for key in sorted(data1.keys() | data2.keys()):
@@ -13,7 +13,7 @@ def get_raw_tree(data1, data2):
             diff.append({
                 'flag': 'nested',
                 'key': key,
-                'value': get_raw_tree(value1, value2)
+                'value': get_diff_tree(value1, value2)
             })
         elif value1 != value2:
             diff.append({

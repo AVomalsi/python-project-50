@@ -22,8 +22,11 @@ lint:
 test:
 	poetry run pytest -s
 
+coverage:
+	poetry run pytest --cov=gendiff
+
 test-coverage:
-	poetry run pytest --cov
+	poetry run pytest --cov=gendiff --cov-report xml
 
 selfcheck:
 	poetry check

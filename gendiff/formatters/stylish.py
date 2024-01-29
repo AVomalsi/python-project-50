@@ -2,22 +2,20 @@ def generate_space(length):
     return ' ' * length
 
 
-def edit_value(dct_value, depth):
-    if isinstance(dct_value, dict):
-        result = []
-        for key, value in dct_value.items():
-            result.append(
-                f'{generate_space(depth * 4 - 2)}  {key}: '
-                f'{edit_value(value, depth + 1)}'
-            )
-        result = (
-            '{\n'
-            + '\n'.join(result)
-            + '\n'
-            + f'{generate_space((depth - 1) * 4)}'
-            + '}'
+def format_dict(data, depth):
+    lines = ['{']
+    for key, value in data.items():
+        lines.append(
+            f'{generate_space(depth * 4 - 2)}  {key}: '
+            f'{format_value(value, depth + 1)}'
         )
-        return result
+    output_data = lines + [f'{generate_space((depth - 1) * 4)}}}']
+    return '\n'.join(output_data)
+
+
+def format_value(dct_value, depth):
+    if isinstance(dct_value, dict):
+        return format_dict(dct_value, depth)
     elif dct_value is None:
         return 'null'
     elif isinstance(dct_value, bool):
@@ -27,45 +25,39 @@ def edit_value(dct_value, depth):
 
 def format_stylish(diff):
     def walk(diff, depth=1):
-        lst = []
+        lines = ['{']
         for item in diff:
             if 'key' in item:
                 if item['flag'] == 'added':
-                    lst.append(
+                    lines.append(
                         f'{generate_space(depth * 4 - 2)}+ {item["key"]}: '
-                        f'{edit_value(item["value"], depth + 1)}'
+                        f'{format_value(item["value"], depth + 1)}'
                     )
                 elif item['flag'] == 'deleted':
-                    lst.append(
+                    lines.append(
                         f'{generate_space(depth * 4 - 2)}- {item["key"]}: '
-                        f'{edit_value(item["value"], depth + 1)}'
+                        f'{format_value(item["value"], depth + 1)}'
                     )
                 elif item['flag'] == 'unchanged':
-                    lst.append(
+                    lines.append(
                         f'{generate_space(depth * 4 - 2)}  {item["key"]}: '
-                        f'{edit_value(item["value"], depth + 1)}'
+                        f'{format_value(item["value"], depth + 1)}'
                     )
                 elif item['flag'] == 'changed':
-                    lst.append(
+                    lines.append(
                         f'{generate_space(depth * 4 - 2)}- {item["key"]}: '
-                        f'{edit_value(item["old_value"], depth + 1)}'
+                        f'{format_value(item["old_value"], depth + 1)}'
                     )
-                    lst.append(
+                    lines.append(
                         f'{generate_space(depth * 4 - 2)}+ {item["key"]}: '
-                        f'{edit_value(item["new_value"], depth + 1)}'
+                        f'{format_value(item["new_value"], depth + 1)}'
                     )
                 elif item['flag'] == 'nested':
-                    lst.append(
+                    lines.append(
                         f'{generate_space(depth * 4 - 2)}  {item["key"]}: '
                         f'{walk(item["value"], depth + 1)}'
                     )
 
-        result = (
-            '{\n'
-            + '\n'.join(lst)
-            + '\n'
-            + f'{generate_space((depth - 1) * 4)}'
-            + '}'
-        )
-        return result
+        output_data = lines + [f'{generate_space((depth - 1) * 4)}}}']
+        return '\n'.join(output_data)
     return walk(diff)
